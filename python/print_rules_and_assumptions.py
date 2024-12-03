@@ -23,11 +23,4 @@ print("- The host will always open a box that the contestant did not choose.")
 print("- The host will always reveal an empty box and never the car the prize.")
 print("- If the contestant's first choice is the prize, the host will always reveal from the remaining boxes at random.")
 
-print("")
-ready_to_play = input("Are you ready to play? ")
-if ready_to_play[0].lower() == "y":
-    print("")
-    print("Ok, let's do it!")
-    print("")
-    sb.run(['python', 'play_monty_hall.py'])
 
