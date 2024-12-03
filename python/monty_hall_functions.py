@@ -9,9 +9,6 @@ import subprocess as sb
 # set up the three boxes (remember zero indexing!)
 boxes = (1, 2, 3)
 
-# make a dict to express numbers as words
-box_text_dict = {1: "ONE", 2: "TWO", 3: "THREE"}
-
 # list the possible tactics for the game
 tactics = ("switch", "stick")
 

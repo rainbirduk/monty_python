@@ -33,7 +33,6 @@ def main_menu():
         except ValueError:
             print("Invalid input. Please enter a number from the menu: ")
             user_selection = None  # Reset user_selection to stay in the loop
-
     return user_selection
 
 # wrapper function to run the chosen script and then prompt return to manin menu
