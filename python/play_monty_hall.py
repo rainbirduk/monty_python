@@ -1,4 +1,3 @@
-# import modules
 import monty_hall_functions as mh
 import random as rd
 
