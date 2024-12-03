@@ -7,8 +7,8 @@ def main():
     while True:
         user_selection = menu.menu()
          
-        if user_selection < len(menu.menu_items):
-            menu.run_script(menu.menu_items[user_selection][1])
+        if user_selection < len(menu.items):
+            menu.run_script(menu.items[user_selection][1])
         
         else:
             print("")

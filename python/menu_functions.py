@@ -9,7 +9,7 @@ items = {1 : ['| 1. Play the Monty Hall Game',                     'play_monty_h
          6 : ['| 6. Quit the game',                                'NA']}
 
 # make a menu index
-item_index = list(range(1, len(items) + 1))
+item_index = list(items.keys())
 
 # function to prompt for and return a menu selection from the user
 def menu():
@@ -32,7 +32,7 @@ def menu():
             user_selection = None  # Reset user_selection to stay in the loop
     return user_selection
 
-# wrapper function to run the chosen script and then prompt return to manin menu
+# wrapper function to run the chosen script and then pause to prompt before returning to manin menu
 def run_script(script_name):
     sb.run(['python', script_name])
     input("\nPress Enter to return to the main menu...")
