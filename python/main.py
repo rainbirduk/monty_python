@@ -9,6 +9,9 @@ def main():
         if user_selection < len(menu.items):
             menu.run_script(menu.items[user_selection][1])      
         else:
+            print("")
+            print("Thanks for playing Monty Hall")
+            print("")
             break
 
 if __name__ == "__main__":

@@ -11,7 +11,7 @@ def print_underlined(text):
 def print_intro():
     print("")
     print("You are on a game show and the host presents you with three boxes.")
-    print("Inside one box are the keys to a new Suzuki sports bike; the other two boxes are empty.")
+    print("Inside one box are the keys to a new Suzuki sports bike; the other two boxes contain toilet seats.")
 
 # print the rules
 def print_rules():
@@ -48,7 +48,7 @@ def input_initial_choice():
 def print_host_hint(host_hint):
     print("")
     print("Without opening your chosen box, the host proceeds to open box number", 
-        box_text_dict[host_hint], "to reveal that it is empty.")
+        box_text_dict[host_hint], "to reveal that it contains a toilet seat.")
     
 # function to allow contestant to interactively choose and confirm their tactic
 def input_choose_and_confirm_tactic(initial_choice, host_hint):
