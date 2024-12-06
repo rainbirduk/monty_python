@@ -58,6 +58,7 @@ def assign_outcome(final_choice, winning_box):
 ############################
 ### simulation functions ###
 
+
 # play through automatically the game using rd choices
 def play_monty_hall(tactic = rd.choice(tactics)):
     winning_box = allocate_winning_box()
@@ -86,10 +87,17 @@ def summarise_game_simulation(simulation_results):
     return summary_dict
 
 # iterate n simulations with n rounds
-def iterate_monty_hall(n_rounds, n_simulations):
+def iterate_monty_hall(n_rounds, n_simulations, tactic_allocation = "random"):
     dict_list = []
+
+    # run the simulation, either choosing a tactic at random or alternating between switch and stick
+    tactic_pendulum = rd.choice([1,2])
     for sim in range(n_simulations):
-        tactic = rd.choice(tactics)
+        if tactic_allocation == "random":
+            tactic = rd.choice(tactics)
+        elif tactic_allocation == "equal":
+            tactic = tactics[tactic_pendulum % 2]
+            tactic_pendulum = tactic_pendulum + 1
         simulation_results = simulate_monty_hall(n_rounds, tactic) 
         simulation_summary = summarise_game_simulation(simulation_results)
         dict_list.append(simulation_summary)

@@ -27,9 +27,12 @@ user_name = input("What is your name? ").capitalize()
 # set the number of simulations and game rounds   
 n_simulations = int(input(f"How many simulations of Monty Hall would you like to perform, {user_name}? "))
 n_rounds = int(input("And how many rounds would you like to play per simulation? "))
+print("")
+print("Lastly, would you like to allocate tactics at random or equally across simulations?")
+tactic_allocation = input("Type 'random' or 'equal': ").lower()
 
 # simulate the game
-simulation_results = mh.iterate_monty_hall(n_rounds, n_simulations)
+simulation_results = mh.iterate_monty_hall(n_rounds, n_simulations, tactic_allocation = "equal")
 
 # Display the plot
 plt.show()
