@@ -32,7 +32,7 @@ print("Lastly, would you like to allocate tactics at random or equally across si
 tactic_allocation = input("Type 'random' or 'equal': ").lower()
 
 # simulate the game
-simulation_results = mh.iterate_monty_hall(n_rounds, n_simulations, tactic_allocation = "equal")
+simulation_results = mh.iterate_monty_hall(n_rounds, n_simulations, tactic_allocation)
 
 # Display the plot
 plt.show()
