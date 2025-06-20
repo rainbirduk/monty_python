@@ -25,7 +25,7 @@ outcome = mh.assign_outcome(final_choice, winning_box)
 
 # simulation outcomes
 print("")
-cs.print("Invididual function outputs", style = "underline")
+cs.print("Function outputs", style = "underline")
 print("          boxes:", mh.boxes)
 print("    winning_box:", winning_box)
 print(" initial_choice:", initial_choice)

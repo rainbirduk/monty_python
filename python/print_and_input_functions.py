@@ -1,5 +1,6 @@
 import monty_hall_functions as mh
 import subprocess as sb
+import webbrowser as wb
 from rich.console import Console
 cs = Console()
 
@@ -30,6 +31,10 @@ def print_assumptions():
     print("- The host will always open a box that the contestant did not choose.")
     print("- The host will always reveal an empty box and never the winning box.")
     print("- If the contestant's first choice is correct, the host will always reveal from the remaining boxes at random.")
+
+# open a browser and go to the monty hall wikipedia article
+def open_wiki():
+    wb.open('https://en.wikipedia.org/wiki/Monty_Hall_problem')
 
 # make a dict to express numbers as words
 box_text_dict = {1: "ONE", 2: "TWO", 3: "THREE"}

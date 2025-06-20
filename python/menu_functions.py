@@ -4,7 +4,7 @@ import subprocess as sb
 items = {1 : ['| 1. Play the Monty Hall Game',                     'play_monty_hall.py'],
          2 : ['| 2. Run a Monty Hall simulation',                  'simulate_monty_hall.py'],
          3 : ['| 3. Check the rules and standard assumptions',     'print_rules_and_assumptions.py'],
-         4 : ['| 4. Learn more about Monty Hall',                  'monty_hall_analysis_placeholder.py'],
+         4 : ['| 4. Learn more about Monty Hall',                  'go_to_wiki.py'],
          5 : ['| 5. Function test',                                'monty_hall_functions_test.py'],
          6 : ['| 6. Quit the game',                                'NA']}
 
