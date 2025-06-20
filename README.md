@@ -1,2 +1,2 @@
 # monty_python
- practising Python by coding a game based on the Monty Hall problem
+ Practising Python by coding a game based on the Monty Hall problem
