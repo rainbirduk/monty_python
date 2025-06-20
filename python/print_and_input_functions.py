@@ -10,6 +10,7 @@ def print_underlined(text):
 
 # print the introduction
 def print_intro():
+    print("")
     try:
         with open('../text/game_intro.txt', 'r') as file:
             print(file.read())
@@ -18,6 +19,7 @@ def print_intro():
 
 # print the rules
 def print_rules():
+    print("")
     try:
         with open('../text/game_rules.txt', 'r') as file:
             print(file.read())
@@ -33,9 +35,13 @@ box_text_dict = {1: "ONE", 2: "TWO", 3: "THREE"}
 
 # input functions for the contestants initial choice of box
 def input_initial_choice():
-    print("")
     print("The host invites you to choose a box that you think might be the winner")
-    initial_choice = input("Choose a box by entering a number between 1 and 3: ")
+    print("")
+    initial_choice = input("Choose a box by entering a number between 1 and 3, or type 'rules' for a reminder of the rules and assumptions: ")
+    while initial_choice == "rules":
+        print_rules()
+        print("")
+        initial_choice = input("Now choose a box by entering a number between 1 and 3: ")
     initial_choice = mh.choose_initial_box(initial_choice)
     print("")
     print("You have chosen box number", box_text_dict[initial_choice])
