@@ -96,3 +96,23 @@ def print_game_outcome(final_choice, winning_box):
         print(f"You have lost :( The winning box was box number {box_text_dict[winning_box]}.")
         print("Thanks for playing. Better luck next time.")
     print("")
+
+# choose the number of simulations to perform
+def choose_n_simulations():
+    n_simulations = int(input(f"How many simulations of Monty Hall would you like to perform? "))
+    return n_simulations
+
+# choose the number of rounds to play per simulation
+def choose_n_rounds():
+    n_rounds = int(input("And how many rounds would you like to play per simulation? "))
+    return n_rounds
+
+# choose whether tactics should be chosen equally or at random. 
+def allocate_tactic():
+    tactic_allocation_options = {"e" : "equal", "r" : "random"}
+    tactic_allocation = input("Lastly, would you like to allocate tactics at random or equally across simulations? ")
+    while tactic_allocation.lower()[0] not in list(tactic_allocation_options.keys()):
+        print("")
+        tactic_allocation = input(f"{tactic_allocation} is not a valid choice. Please enter 'equal' or 'random': ")
+    tactic_allocation = tactic_allocation_options[tactic_allocation.lower()[0]]
+    return tactic_allocation
