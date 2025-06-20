@@ -8,29 +8,21 @@ cs = Console()
 def print_underlined(text):
     cs.print(text, style = "underline")
 
-# print the introduction text
+# print the introduction
 def print_intro():
-    print("")
-    print("You are on a game show and the host presents you with three boxes.")
-    print("Inside one box are the keys to a new Suzuki sports bike; the other two boxes contain toilet seats.")
+    try:
+        with open('../text/game_intro.txt', 'r') as file:
+            print(file.read())
+    except FileNotFoundError:
+        print("The intro text file could not be found.")
 
 # print the rules
 def print_rules():
-    print("")
-    print("The game runs like this:")
-    print("1. The contestant first chooses a box but does not open it")
-    print("2. The host gives a hint that is niether the winning box nor the initial_choice")
-    print("3. The contestant decides whether or not to switch their choice to the remaining box")
-    print("4. Their final choice box is opened to reveal the outcome of the game")
-
-# print the assumptions
-def print_assumptions():
-    print("")
-    print("Standard assumptions:")
-    print("- The prize is equally likely to be behind any door.")
-    print("- The host will always open a box that the contestant did not choose.")
-    print("- The host will always reveal an empty box and never the winning box.")
-    print("- If the contestant's first choice is correct, the host will always reveal from the remaining boxes at random.")
+    try:
+        with open('../text/game_rules.txt', 'r') as file:
+            print(file.read())
+    except FileNotFoundError:
+        print("The rules text file could not be found.")
 
 # open a browser and go to the monty hall wikipedia article
 def open_wiki():
