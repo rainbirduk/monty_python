@@ -54,10 +54,13 @@ def input_choose_and_confirm_tactic(initial_choice, host_hint):
     print("The host then invites you to switch your choice to the remaining box")
     
     # contestant chooses a strategy
-    check = "n"
-    while check[0].lower() == "n":
+    tactic_confirmed = "n"
+    while tactic_confirmed[0].lower() != "y":
         print("")
         tactic = input("Would you like to switch or stick? ").lower()
+        while tactic not in mh.tactics:
+            print("")
+            tactic = input("Invalid tactic; please enter 'switch' or 'stick': ")
         final_choice = mh.choose_tactic(initial_choice, host_hint, tactic)
 
         # double check the contestants tactic
@@ -67,11 +70,11 @@ def input_choose_and_confirm_tactic(initial_choice, host_hint):
         else:
             print("Are you sure you want to switch from box number", box_text_dict[initial_choice],
                 "to box number", box_text_dict[final_choice])
-        check = input("Please enter either 'yes' or 'no': ")
-        while check[0].lower() not in ["y", "n"]:
+        tactic_confirmed = input("Please enter either 'yes' or 'no': ")
+        while tactic_confirmed[0].lower() not in ["y", "n"]:
             print("")
-            print(check, "is not a valid option.")
-            check = input("Please enter either 'yes' or 'no': ")
+            print(tactic_confirmed, "is not a valid option.")
+            tactic_confirmed = input("Please enter either 'yes' or 'no': ")
 
     # assign final tactic
     if  tactic == "stick":

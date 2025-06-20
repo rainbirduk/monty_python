@@ -40,9 +40,6 @@ def host_gives_a_hint(winning_box, initial_choice):
 
 # function to calculate the contestants final choice from their tactic
 def choose_tactic(initial_choice, host_hint, tactic):
-    while tactic not in tactics:
-        print("")
-        tactic = input("Invalid tactic; please enter 'switch' or 'stick': ")
     if tactic == "switch":
         final_choice = [box for box in boxes if box not in 
                         [host_hint, initial_choice]][0]
