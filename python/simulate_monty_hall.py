@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 from IPython.display import HTML, display
 import webbrowser
 import os
+import print_and_input_functions as tx
 
 
 print("")
@@ -21,21 +22,19 @@ png_filepath = os.path.join(parent_directory, png_filepath)
 html_filepath = 'outputs/monty_hall_report.html'
 html_filepath = os.path.join(parent_directory, html_filepath)
 
-# set the user name
-user_name = input("What is your name? ").capitalize()
+# set the parameters with user input 
+user_name = input("What is your name? ")
+user_name = re.sub(r"s's", "s'", user_name + "'s").capitalize()
 
-# set the number of simulations and game rounds   
-n_simulations = int(input(f"How many simulations of Monty Hall would you like to perform, {user_name}? "))
-n_rounds = int(input("And how many rounds would you like to play per simulation? "))
-print("")
-print("Lastly, would you like to allocate tactics at random or equally across simulations?")
-tactic_allocation = input("Type 'random' or 'equal': ").lower()
+n_simulations = tx.choose_n_simulations()
+n_rounds = tx.choose_n_rounds()
+tactic_allocation = tx.allocate_tactic()
 
 # simulate the game
 simulation_results = mh.iterate_monty_hall(n_rounds, n_simulations, tactic_allocation)
 
 # Display the plot
-plt.show()
+#plt.show()
 
 # Generate summary statistics table
 summary_table = simulation_results.groupby('tactic')['success_rate'].describe().reset_index()
@@ -50,13 +49,13 @@ plt.ylabel('Success rate')
 plt.savefig(png_filepath)  # Save the plot as a PNG file
 plt.close()
 
-# clean the username 
-user_name = re.sub(r"s's", "s'", user_name + "'s")
-
 # Create summary text
 summary_text = f"""
 <h1>{user_name} Monty Hall Simulation </h1>
 <p>This report contains the results of a simulation comparing the success rates of two tactics: "switch" and "stick".</p>
+<p>Number of simulations: {n_simulations}</p>
+<p>Rounds per simulation: {n_rounds}</p>
+<p>Tactic allocation: {tactic_allocation.capitalize()}</p>
 """
 
 # Create the HTML content
