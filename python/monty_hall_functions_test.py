@@ -5,14 +5,14 @@ import random as rd
 from rich.console import Console
 cs = Console()
 
-# winning box
-winning_box = mh.allocate_winning_box()
+# winning door
+winning_door = mh.allocate_winning_door()
 
-# # contestant chooses a box
-initial_choice = mh.choose_initial_box()
+# # contestant chooses a door
+initial_choice = mh.choose_initial_door()
 
-# host gives a hint that is not winning_box or initial_choice
-host_hint = mh.host_gives_a_hint(winning_box, initial_choice)
+# host gives a hint that is not winning_door or initial_choice
+host_hint = mh.host_gives_a_hint(winning_door, initial_choice)
 
 # the contestant decides a tactic
 tactic = rd.choice(mh.tactics)
@@ -21,13 +21,13 @@ tactic = rd.choice(mh.tactics)
 final_choice = mh.choose_tactic(initial_choice, host_hint, tactic)
 
 # assign the oucome
-outcome = mh.assign_outcome(final_choice, winning_box)
+outcome = mh.assign_outcome(final_choice, winning_door)
 
 # simulation outcomes
 print("")
 cs.print("Function outputs", style = "underline")
-print("          boxes:", mh.boxes)
-print("    winning_box:", winning_box)
+print("          doors:", mh.doors)
+print("    winning_door:", winning_door)
 print(" initial_choice:", initial_choice)
 print("      host_hint:", host_hint)
 print("         tactic:", tactic)
