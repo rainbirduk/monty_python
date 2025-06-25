@@ -18,8 +18,11 @@ def generate_simulation_report(simulation_results, summary_table,
     current_directory = os.getcwd()
     parent_directory = os.path.dirname(current_directory)
     outputs_subdir = 'outputs'
+    outputs_fullpath = os.path.join(parent_directory, outputs_subdir)
+    if not os.path.exists(outputs_fullpath):
+        os.makedirs(outputs_fullpath)
     pdf_filename = f'Monty_Hall_simulation_{timestamp}_report.pdf'
-    pdf_fullpath = os.path.join(parent_directory, outputs_subdir, pdf_filename)
+    pdf_fullpath = os.path.join(outputs_fullpath, pdf_filename)
 
     # set up the PDF layout
     fig = plt.figure(figsize=(7, 6))  
