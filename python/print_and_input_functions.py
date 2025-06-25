@@ -1,6 +1,6 @@
 import monty_hall_functions as mh
-import subprocess as sb
 import webbrowser as wb
+import os
 from rich.console import Console
 cs = Console()
 
@@ -96,12 +96,14 @@ def print_game_outcome(final_choice, winning_box):
     # assign the result
     print("")
     if outcome:
+        wb.open_new("https://raw.githubusercontent.com/rainbirduk/monty_python/refs/heads/main/images/lose_goat.png")
         print(f"You win! The winning box was indeed box number {box_text_dict[winning_box]}!")
         print("Thanks for playing. Enjoy your sports bike.")
     else:
+        wb.open_new("https://raw.githubusercontent.com/rainbirduk/monty_python/refs/heads/main/images/lose_goat.png")
         print(f"You have lost :( The winning box was box number {box_text_dict[winning_box]}.")
         print("Thanks for playing. Better luck next time.")
-
+    
 # choose the number of simulations to perform
 def choose_n_simulations():
     print("")
