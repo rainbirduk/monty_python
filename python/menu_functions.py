@@ -2,7 +2,7 @@ import subprocess as sb
 
 # set up a selection of menu items and associated script names
 items = {1 : ['| 1. Play the Monty Hall Game',                     'play_monty_hall.py'],
-         2 : ['| 2. Run a Monty Hall simulation',                  'simulate_monty_hall.py'],
+         2 : ['| 2. Run a Monty Hall simulation',                  'run_user_simulation.py'],
          3 : ['| 3. Check the rules and standard assumptions',     'print_rules_and_assumptions.py'],
          4 : ['| 4. Learn more about Monty Hall',                  'go_to_wiki.py'],
          5 : ['| 5. Function test',                                'monty_hall_functions_test.py'],
@@ -23,19 +23,19 @@ def menu():
         for i in item_index:
             print(items[i][0])
         try:
+            print("")
             user_selection = int(input("Please make your selection: "))
             if user_selection not in item_index:
                 raise ValueError
         except ValueError:
             print("")
             print("Invalid input. Please enter a number from the menu: ")
-            user_selection = None  # Reset user_selection to stay in the loop
+            user_selection = None  # reset user_selection to stay in the loop
     return user_selection
 
 # wrapper function to run the chosen script and then pause to prompt before returning to manin menu
 def run_script(script_name):
     sb.run(['python', script_name])
-    input("\nPress Enter to return to the main menu...")
-    print("___________________________________________")
     print("")
-    print("What would you like to do now?")
+    input("Press Enter to return to the main menu...")
+    print("___________________________________________")
