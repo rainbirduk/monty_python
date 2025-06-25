@@ -125,3 +125,10 @@ def allocate_tactic():
         tactic_allocation = input(f"{tactic_allocation} is not a valid choice. Please enter 'equal' or 'random': ")
     tactic_allocation = tactic_allocation_options[tactic_allocation.lower()[0]]
     return tactic_allocation
+
+# function to get ordinal suffixes
+def ordinal(n):
+    if 10 <= n % 100 <= 13:
+        return f"{n}th"
+    else:
+        return f"{n}{['th', 'st', 'nd', 'rd', 'th'][min(n % 10, 4)]}"

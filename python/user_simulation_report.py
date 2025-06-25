@@ -8,6 +8,8 @@ import monty_hall_functions as mh
 import matplotlib.pyplot as plt
 import print_and_input_functions as tx
 import webbrowser as wb
+import print_and_input_functions as tx
+
 
 print("")
 print("Make your own Monty Hall Simulation and test the strategy for yourself")
@@ -44,15 +46,8 @@ summary_table.index.name = None
 fig = plt.figure(figsize=(7, 6))  
 gs = gridspec.GridSpec(4, 1, height_ratios=[0.05, 5, 0.7, 0.2])  # [title, plot, table, text]
 
-# function to get ordinal suffixes
-def ordinal(n):
-    if 10 <= n % 100 <= 13:
-        return f"{n}th"
-    else:
-        return f"{n}{['th', 'st', 'nd', 'rd', 'th'][min(n % 10, 4)]}"
-
 # build formatted date string
-formatted_time = f"{now.strftime('%A,')} {ordinal(now.day)} {now.strftime('%B %Y at %I:%M %p')}"
+formatted_time = f"{now.strftime('%A,')} {tx.ordinal(now.day)} {now.strftime('%B %Y at %I:%M %p')}"
 
 # generate the title and date
 title = f"{user_name}Monty Hall game simulation"
