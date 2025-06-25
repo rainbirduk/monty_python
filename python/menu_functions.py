@@ -2,7 +2,7 @@ import subprocess as sb
 
 # set up a selection of menu items and associated script names
 items = {1 : ['| 1. Play the Monty Hall Game',                     'play_monty_hall.py'],
-         2 : ['| 2. Run a Monty Hall simulation',                  'simulate_monty_hall.py'],
+         2 : ['| 2. Run a Monty Hall simulation',                  'user_simulation_report.py'],
          3 : ['| 3. Check the rules and standard assumptions',     'print_rules_and_assumptions.py'],
          4 : ['| 4. Learn more about Monty Hall',                  'go_to_wiki.py'],
          5 : ['| 5. Function test',                                'monty_hall_functions_test.py'],
@@ -29,7 +29,7 @@ def menu():
         except ValueError:
             print("")
             print("Invalid input. Please enter a number from the menu: ")
-            user_selection = None  # Reset user_selection to stay in the loop
+            user_selection = None  # reset user_selection to stay in the loop
     return user_selection
 
 # wrapper function to run the chosen script and then pause to prompt before returning to manin menu
