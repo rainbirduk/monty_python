@@ -30,34 +30,34 @@ def open_wiki():
     wb.open('https://en.wikipedia.org/wiki/Monty_Hall_problem')
 
 # make a dict to express numbers as words
-box_text_dict = {1: "ONE", 2: "TWO", 3: "THREE"}
+door_text_dict = {1: "ONE", 2: "TWO", 3: "THREE"}
 
-# input functions for the contestants initial choice of box
+# input functions for the contestants initial choice of door
 def input_initial_choice():
-    print("The host invites you to choose a box that you think might be the winner")
+    print("The host invites you to choose a door that you think might be the winner")
     print("")
-    initial_choice = input("Choose a box by entering a number between 1 and 3, or type 'rules' for a reminder of the rules and assumptions: ")
+    initial_choice = input("Choose a door by entering a number between 1 and 3, or type 'rules' for a reminder of the rules and assumptions: ")
     while initial_choice == "rules":
         print("")
         print_rules()
         print("")
-        initial_choice = input("Now choose a box by entering a number between 1 and 3: ")
-    initial_choice = mh.choose_initial_box(initial_choice)
+        initial_choice = input("Now choose a door by entering a number between 1 and 3: ")
+    initial_choice = mh.choose_initial_door(initial_choice)
     print("")
-    print("You have chosen box number", box_text_dict[initial_choice])
+    print("You have chosen door number", door_text_dict[initial_choice])
     return initial_choice
 
 # print the host hints
 def print_host_hint(host_hint):
     print("")
-    print("Without opening your chosen box, the host proceeds to open box number", 
-        box_text_dict[host_hint], "to reveal that it contains a toilet seat.")
+    print("Without opening your chosen door, the host proceeds to open door number", 
+        door_text_dict[host_hint], "to reveal that it contains a goat.")
     
 # function to allow contestant to interactively choose and confirm their tactic
 def input_choose_and_confirm_tactic(initial_choice, host_hint):
 
     # host invites contestant to switch their choice
-    print("The host then invites you to switch your choice to the remaining box")
+    print("The host then invites you to switch your choice to the remaining door")
     
     # contestant chooses a strategy
     tactic_confirmed = "n"
@@ -72,10 +72,10 @@ def input_choose_and_confirm_tactic(initial_choice, host_hint):
         # double check the contestants tactic
         print("")
         if final_choice == initial_choice:
-            print("Are you sure you want to stick with box number", box_text_dict[initial_choice])
+            print("Are you sure you want to stick with door number", door_text_dict[initial_choice])
         else:
-            print("Are you sure you want to switch from box number", box_text_dict[initial_choice],
-                "to box number", box_text_dict[final_choice])
+            print("Are you sure you want to switch from door number", door_text_dict[initial_choice],
+                "to door number", door_text_dict[final_choice])
         tactic_confirmed = input("Please enter either 'yes' or 'no': ")
         while tactic_confirmed[0].lower() not in ["y", "n"]:
             print("")
@@ -88,20 +88,20 @@ def input_choose_and_confirm_tactic(initial_choice, host_hint):
     return final_choice
 
 # print the game outcome
-def print_game_outcome(final_choice, winning_box):
+def print_game_outcome(final_choice, winning_door):
     
     # assign the oucome
-    outcome = mh.assign_outcome(final_choice, winning_box)
+    outcome = mh.assign_outcome(final_choice, winning_door)
 
     # assign the result
     print("")
     if outcome:
-        wb.open_new("https://raw.githubusercontent.com/rainbirduk/monty_python/refs/heads/main/images/lose_goat.png")
-        print(f"You win! The winning box was indeed box number {box_text_dict[winning_box]}!")
+        wb.open_new("https://raw.githubusercontent.com/rainbirduk/monty_python/refs/heads/main/images/winner_bike.png")
+        print(f"You win! The winning door was indeed door number {door_text_dict[winning_door]}!")
         print("Thanks for playing. Enjoy your sports bike.")
     else:
         wb.open_new("https://raw.githubusercontent.com/rainbirduk/monty_python/refs/heads/main/images/lose_goat.png")
-        print(f"You have lost :( The winning box was box number {box_text_dict[winning_box]}.")
+        print(f"You have lost :( The winning door was door number {door_text_dict[winning_door]}.")
         print("Thanks for playing. Better luck next time.")
     
 # choose the number of simulations to perform

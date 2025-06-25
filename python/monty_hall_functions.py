@@ -6,8 +6,8 @@ import subprocess as sb
 ######################
 ### game variables ###
 
-# set up the three boxes (remember zero indexing!)
-boxes = (1, 2, 3)
+# set up the three doors (remember zero indexing!)
+doors = (1, 2, 3)
 
 # list the possible tactics for the game
 tactics = ("switch", "stick")
@@ -19,37 +19,37 @@ results = {True : "Win", False : "Lose"}
 ######################
 ### game functions ###
 
-# function to allocate the winning box
-def allocate_winning_box():
-    return rd.choice(boxes) 
+# function to allocate the winning door
+def allocate_winning_door():
+    return rd.choice(doors) 
 
-# function to allow the contestant to choose a box, or choose one at rd
-def choose_initial_box(box_choice = rd.choice(boxes)):
-    box_choice = int(box_choice)
-    while box_choice not in boxes:
+# function to allow the contestant to choose a door, or choose one at rd
+def choose_initial_door(door_choice = rd.choice(doors)):
+    door_choice = int(door_choice)
+    while door_choice not in doors:
         print("")
-        print("Sorry, but", box_choice, "is not a valid guess.")
-        box_choice = int(input("Enter a box number between 1 an 3: "))
-    return box_choice
+        print("Sorry, but", door_choice, "is not a valid guess.")
+        door_choice = int(input("Enter a door number between 1 an 3: "))
+    return door_choice
 
 # function to simulate the host giving a hint
-def host_gives_a_hint(winning_box, initial_choice):
-    host_choices = [box for box in boxes if box not in 
-                    [winning_box, initial_choice]]
+def host_gives_a_hint(winning_door, initial_choice):
+    host_choices = [door for door in doors if door not in 
+                    [winning_door, initial_choice]]
     return rd.choice(host_choices) 
 
 # function to calculate the contestants final choice from their tactic
 def choose_tactic(initial_choice, host_hint, tactic):
     if tactic == "switch":
-        final_choice = [box for box in boxes if box not in 
+        final_choice = [door for door in doors if door not in 
                         [host_hint, initial_choice]][0]
     else:
         final_choice = initial_choice
     return final_choice
 
 # function to assign the outcome
-def assign_outcome(final_choice, winning_box):
-    return final_choice == winning_box
+def assign_outcome(final_choice, winning_door):
+    return final_choice == winning_door
 
 
 ############################
@@ -58,11 +58,11 @@ def assign_outcome(final_choice, winning_box):
 
 # play through automatically the game using rd choices
 def play_monty_hall(tactic = rd.choice(tactics)):
-    winning_box = allocate_winning_box()
-    initial_choice = choose_initial_box()
-    host_hint = host_gives_a_hint(winning_box, initial_choice)
+    winning_door = allocate_winning_door()
+    initial_choice = choose_initial_door()
+    host_hint = host_gives_a_hint(winning_door, initial_choice)
     final_choice = choose_tactic(initial_choice, host_hint, tactic)
-    outcome = assign_outcome(final_choice, winning_box)
+    outcome = assign_outcome(final_choice, winning_door)
     return {"tactic" : tactic, "result" : results[outcome]}
 
 # function to simulate n rounds of a monty hall game with one tactic
