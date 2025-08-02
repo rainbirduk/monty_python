@@ -1,6 +1,6 @@
 import monty_hall_functions as mh
 import webbrowser as wb
-import os
+#import os
 from rich.console import Console
 cs = Console()
 
@@ -19,11 +19,19 @@ def print_intro():
 
 # print the rules
 def print_rules():
+    print()
     try:
         with open('../text/game_rules.txt', 'r') as file:
             print(file.read())
     except FileNotFoundError:
         print("The rules text file could not be found.")
+
+# print both the introduction and the rules with proper spacing
+def print_intro_and_rules():
+    print()
+    print_underlined("The Monty Hall game rules and assumptions")
+    print_intro()
+    print_rules()
 
 # open a browser and go to the monty hall wikipedia article
 def open_wiki():
@@ -38,7 +46,6 @@ def input_initial_choice():
     print("")
     initial_choice = input("Choose a door by entering a number between 1 and 3, or type 'rules' for a reminder of the rules and assumptions: ")
     while initial_choice == "rules":
-        print("")
         print_rules()
         print("")
         initial_choice = input("Now choose a door by entering a number between 1 and 3: ")

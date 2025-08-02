@@ -2,7 +2,6 @@ import monty_hall_functions as mh
 import print_and_input_functions as tx
 
 # introduction
-print("")
 tx.print_intro()
 
 # winning door

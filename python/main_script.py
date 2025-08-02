@@ -6,12 +6,11 @@ print("WELCOME TO THE MONTY HALL GAME")
 def main():
     while True:
         user_selection = menu.menu()
-        if user_selection != 6:
-            menu.run_script(menu.items[user_selection][1])      
+        task_type, _ = menu.items[user_selection][1]
+        if task_type != 'exit':
+            menu.run_task(menu.items[user_selection][1])     
         else:
-            print("")
-            print("Thanks for playing Monty Hall")
-            print("")
+            print("\nThanks for playing Monty Hall\n")
             break
 
 if __name__ == "__main__":
