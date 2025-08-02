@@ -33,12 +33,6 @@ def menu():
     return user_selection
 
 # wrapper function to run the chosen script and then pause to prompt before returning to manin menu
-# def run_script(script_name):
-#     sb.run(['python', script_name])
-#     print("")
-#     input("Press Enter to return to the main menu...")
-#     print("___________________________________________")
-
 def run_task(task):
     task_type, action = task
     if task_type == 'script':

@@ -1,6 +1,5 @@
 import monty_hall_functions as mh
 import webbrowser as wb
-#import os
 from rich.console import Console
 cs = Console()
 
