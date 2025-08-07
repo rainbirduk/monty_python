@@ -1,10 +1,10 @@
 # Monty Python: A Monty Hall Simulation Tool
 
-This Python-based project provides a modular, interactive, and testable implementation of the classic Monty Hall problem. It includes simulation capabilities, user-guided gameplay, and automated report generation.
+This Python-based portfolio project provides a modular, interactive, and testable implementation of the classic Monty Hall problem. It includes simulation capabilities, user-guided gameplay, and automated report generation.
 
 ## Project Overview
 
-The Monty Hall problem is a probability puzzle based on a game show scenario. This suite allows users to:
+The Monty Hall problem is a probability puzzle based on a game show scenario. This program allows users to:
 - Play the game interactively
 - Run large-scale simulations
 - Generate PDF reports of results
