@@ -1,9 +1,8 @@
-import re
 from datetime import datetime
-
+import re
 import monty_hall_functions as mh
 import print_and_input_functions as tx
-import generate_simulation_report as sim_rpt
+import simulation_reporting as sim_rpt
 
 print("")
 print("Make your own Monty Hall Simulation and test the strategy for yourself")

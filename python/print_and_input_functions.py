@@ -1,6 +1,7 @@
 import monty_hall_functions as mh
-import webbrowser as wb
 from rich.console import Console
+import webbrowser as wb
+
 cs = Console()
 
 # Maps door numbers to display labels
