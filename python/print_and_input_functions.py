@@ -141,33 +141,26 @@ def input_choose_and_confirm_tactic(initial_choice: int, host_hint: int):
         final_choice = initial_choice
     return final_choice
 
-def print_game_outcome(final_choice: int, winning_door: int, image: bool = True):
+def print_game_outcome(final_choice: int, winning_door: int):
     """
     Displays the outcome of the Monty Hall game based on the player's final choice.
 
     Determines whether the player has won or lost using `mh.assign_outcome()`,
-    then prints a corresponding message. If `image` is True, opens a themed win/lose image
-    in the default web browser.
+    then prints a corresponding message. 
 
     Args:
         final_choice (int): The door number selected by the player after confirming their tactic.
         winning_door (int): The door number that contains the prize.
-        image (bool): Whether to display a win/lose image in the browser.
 
     Side Effects:
-        - Conditionally opens a win or lose image in the default web browser.
         - Prints outcome messages to the console.
     """   
     outcome = mh.assign_outcome(final_choice, winning_door)
-    print("")
     if outcome:
-        if image: wb.open_new("https://raw.githubusercontent.com/rainbirduk/monty_python/refs/heads/main/images/winner_bike.png")
-        print(f"You win! The winning door was indeed door number {door_text_dict[winning_door]}!")
-        print("Thanks for playing. Enjoy your sports bike.")
+        print(f"\nYou win! The winning door was indeed door number {door_text_dict[winning_door]}!")
     else:
-        if image: wb.open_new("https://raw.githubusercontent.com/rainbirduk/monty_python/refs/heads/main/images/lose_goat.png")
-        print(f"You have lost :( The winning door was door number {door_text_dict[winning_door]}.")
-        print("Thanks for playing. Better luck next time.")
+        print(f"\nYou have lost :( The winning door was door number {door_text_dict[winning_door]}.")
+    print("Thanks for playing.")
     
 def choose_n_simulations() -> int:
     """
